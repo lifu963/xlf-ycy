@@ -1,0 +1,82 @@
+li {
+    list-style-type: none;
+}
+
+div.blog h3 {
+    margin-top: 0.5em;
+}
+
+div.blog:not(:last-child) {
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid gainsboro;
+}
+
+div.blog p.blog_info {
+    margin-bottom: 0;
+}
+
+ul.blog_info_description {
+    margin: 1em;
+}
+
+ul.blog_info_description li {
+    display: inline-block;
+    margin-right: 2em;
+}
+
+div.paginator {
+    text-align: center;
+}
+
+div.blog-more {
+    margin-top: 1em;
+}
+
+div.comment-area {
+    margin-top: 2em;
+}
+
+h3.comment-area-title {
+    border-bottom: 1px solid gainsboro;
+    padding-bottom: 0.4em;
+}
+
+div.django-ckeditor-widget {
+    width: 100%;
+}
+
+div.comment {
+    border-bottom: 1px dashed gainsboro;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+div.reply {
+    margin-left: 2em;
+}
+
+form#comment_form p label {
+    display: none;
+}
+
+div#reply_content_container {
+    display: block;
+    border: 1px solid black;
+    background-color: #f8f8f8;
+    overflow: hidden;
+    padding: 1em 1em 0.5em;
+}
+
+div.blog-content{
+    margin-bottom: 2em;
+}
+
+div.like{
+    color: #337ab7;
+    cursor:pointer;
+    display: inline-block;
+}
+
+div.like .active{
+    color: red;
+}
