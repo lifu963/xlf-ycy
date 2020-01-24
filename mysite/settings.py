@@ -170,8 +170,8 @@ CACHES = {
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.qq.com'
 EMAIL_PORT = 25
-EMAIL_HOST_USER = '290023318@qq.com'
-EMAIL_HOST_PASSWORD = 'hzwlgsigkicgcbaa'
-EMAIL_SUBJECT_PREFIX = '夫哥小屋'
+EMAIL_HOST_USER = '****************'
+EMAIL_HOST_PASSWORD = '******************'
+EMAIL_SUBJECT_PREFIX = '****************'
 EMAIL_USE_TLS = True
 
