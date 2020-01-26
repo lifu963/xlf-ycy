@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48f087e1-9e14-49d3-8f90-dce5250bfa70" name="Default Changelist" comment="" />
+    <list default="true" id="48f087e1-9e14-49d3-8f90-dce5250bfa70" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/home/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/wsgi.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,10 +41,13 @@
       <list>
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1WQk8Hbz7eJSUs7UgQNytRBI9qK" />
   <component name="ProjectViewState">
@@ -48,7 +60,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -56,19 +68,21 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\virtual\mysite_env\mysite\static\bootstrap-3.3.7\js" />
-      <recent name="F:\virtual\mysite_env\mysite\static\bootstrap-3.3.7\fonts" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\virtual\mysite_env\mysite\mysite\settings" />
+      <recent name="F:\virtual\mysite_env\mysite\mysite" />
       <recent name="F:\virtual\mysite_env\mysite\home\templates\home" />
       <recent name="F:\virtual\mysite_env\mysite\user\templates\user" />
       <recent name="F:\virtual\mysite_env\mysite\user" />
-      <recent name="F:\virtual\mysite_env\mysite\blog\static" />
-      <recent name="F:\virtual\mysite_env\mysite\blog\static\blog" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\virtual\mysite_env\mysite\templates" />
+      <recent name="F:\virtual\mysite_env\mysite\mysite\settings" />
+      <recent name="F:\virtual\mysite_env\mysite\static\bootstrap-3.3.7\js" />
+      <recent name="F:\virtual\mysite_env\mysite\static\bootstrap-3.3.7\fonts" />
     </key>
   </component>
   <component name="RunManager">
@@ -119,6 +133,10 @@
       <option name="presentableId" value="Default" />
       <updated>1579089044539</updated>
       <workItem from="1579089046879" duration="217242000" />
+      <workItem from="1579838372646" duration="15510000" />
+      <workItem from="1580003158088" duration="11526000" />
+      <workItem from="1580055304625" duration="85000" />
+      <workItem from="1580055399579" duration="275000" />
     </task>
     <servers />
   </component>
@@ -138,10 +156,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1579676488613" />
-    <state x="605" y="211" key="FileChooserDialogImpl" timestamp="1579426476557">
+    <state x="605" y="211" key="FileChooserDialogImpl" timestamp="1580055338133">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="605" y="211" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1579426476557" />
+    <state x="605" y="211" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1580055338133" />
     <state x="593" y="326" width="373" height="171" key="Github.CreateGistDialog" timestamp="1579831860086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -150,14 +168,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="212" height="477" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1579674239594" />
-    <state x="328" y="98" key="SettingsEditor" timestamp="1579397854059">
+    <state x="328" y="98" key="SettingsEditor" timestamp="1580055673851">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="328" y="98" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1579397854059" />
-    <state x="634" y="245" key="com.intellij.ide.util.TipDialog" timestamp="1579089047257">
+    <state x="328" y="98" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1580055673851" />
+    <state x="634" y="245" key="com.intellij.ide.util.TipDialog" timestamp="1580055405639">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="634" y="245" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1579089047257" />
+    <state x="634" y="245" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1580055405639" />
     <state x="393" y="2" width="801" height="822" key="find.popup" timestamp="1579792860130">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
