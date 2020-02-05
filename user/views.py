@@ -11,6 +11,18 @@ from django.core.mail import send_mail
 import time
 
 # Create your views here.
+def isLogin(request):
+    data={}
+    user=request.user
+    if not user.is_authenticated:
+        data['status'] = 'ERROR'
+        data['code'] = 400
+        data['message'] = 'you were not login'
+    else:
+        data['status']="SUCCESS"
+    return JsonResponse(data)
+
+
 def login(request):
     if request.method == "POST":
         login_form=LoginForm(request.POST)

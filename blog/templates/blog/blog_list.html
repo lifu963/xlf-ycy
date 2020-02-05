@@ -8,6 +8,7 @@
 {% load comment_tags %}
 {% load likes_tags %}
 {% block header_extends %}
+    <script type="text/javascript" src="{% static 'js/highcharts.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 {% endblock %}
 
@@ -15,11 +16,12 @@
 {% block nav_blog_active %}active{% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="bg"></div>
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-8 col-md-9">
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
                 {# 博客列表 #}
-                <div class="panel panel-default">
+                <div class="panel panel-primary">
                     <div class="panel-heading">{% block blog_list_title %}博客列表{% endblock %}</div>
                     <div class="panel-body">
                         {# 当前页全部博客 #}
@@ -38,7 +40,7 @@
                                     <span class="glyphicon glyphicon-thumbs-up"
                                           aria-hidden="true"></span> {% get_like_count blog %}
                                 </p>
-                                <p>{{ blog.content|striptags|truncatechars:120 }}</p>
+                                <p>{{ blog.content|striptags|truncatechars_html:100 }}</p>
                             </div>
 
                         {% empty %}
@@ -92,13 +94,14 @@
                 </div>
             </div>
             {# 博客分类 #}
-            <div class="hidden-xs col-sm-4 col-md-3">
-                <div class="panel panel-default">
+            <div class="hidden-xs col-sm-4 col-md-4 col-lg-3">
+                <div class="panel panel-success">
                     <div class="panel-heading">博客分类</div>
                     <div class="panel-body">
                         <ul>
                             {% for blog_type in blog_types %}
-                                <li><a href="{% url 'blogs_with_type' blog_type.pk %}">{{ blog_type.type_name }}({{ blog_type.blog_count }})</a>
+                                <li>
+                                    <a href="{% url 'blogs_with_type' blog_type.pk %}">{{ blog_type.type_name }}({{ blog_type.blog_count }})</a>
                                 </li>
                             {% empty %}
                                 <li>暂无分类</li>
@@ -106,7 +109,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="panel panel-default">
+                <div class="panel panel-success">
                     <div class="panel-heading">日期</div>
                     <div class="panel-body">
                         <ul>
@@ -120,9 +123,69 @@
                         </ul>
                     </div>
                 </div>
+                <div class="panel panel-success">
+                    <div class="panel-heading">一周访客数量</div>
+                    <div class="panel-body">
+                        <div id="container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="hidden-sm hidden-md hidden-lg col-xs-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">博客分类</div>
+                    <div class="panel-body">
+                        <ul>
+                            {% for blog_type in blog_types %}
+                                <li>
+                                    <a href="{% url 'blogs_with_type' blog_type.pk %}">{{ blog_type.type_name }}({{ blog_type.blog_count }})</a>
+                                </li>
+                            {% empty %}
+                                <li>暂无分类</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-success">
+                    <div class="panel-heading">日期</div>
+                    <div class="panel-body">
+                        <ul>
+                            {% for blog_date,blog_count in blog_dates.items %}
+                                <li>
+                                    <a href="{% url 'blogs_with_date' blog_date.year blog_date.month %}">
+                                        {{ blog_date|date:"Y年m月" }}({{ blog_count }})
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-success">
+                    <div class="panel-heading">一周访客数量</div>
+                    <div class="panel-body">
+                        <div id="container_c"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
+    </div>
+    <script>
+        // 图表配置
+        var options = {
+            chart: {type: 'line'},
+            title: {text: null},
+            xAxis: {categories:{{dates|safe}}, tickmarkPlacement: "on"},
+            yAxis: {title: {text: null}, labels: {enabled: false}},
+            series: [{name: '每日访客数量', data:{{ read_nums }}}],
+            legend: {enabled: false},
+            credits: {enabled: false},
+            plotOptions: {line: {dataLabels: {enabled: true}}},
+        };
+        // 图表初始化函数
+        var chart = Highcharts.chart('container', options);
+        var chart_c = Highcharts.chart('container_c', options);
+    </script>
 {% endblock %}
 

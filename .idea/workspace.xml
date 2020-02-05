@@ -2,9 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48f087e1-9e14-49d3-8f90-dce5250bfa70" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mysite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mysite.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/static/css/blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/css/blog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/blog_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/blog_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/blog_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/blog_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/comment/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/templatetags/comment_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/comment/templatetags/comment_tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/comment/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user/user_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user/user_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,15 +55,21 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1WQk8Hbz7eJSUs7UgQNytRBI9qK" />
   <component name="ProjectViewState">
@@ -55,7 +82,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mysite/settings/development.py" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -63,21 +90,23 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\virtual\mysite_env\mysite\mysite\settings" />
-      <recent name="F:\virtual\mysite_env\mysite\mysite" />
-      <recent name="F:\virtual\mysite_env\mysite\home\templates\home" />
-      <recent name="F:\virtual\mysite_env\mysite\user\templates\user" />
-      <recent name="F:\virtual\mysite_env\mysite\user" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\virtual\mysite_env\xlf-ycy\images" />
       <recent name="F:\virtual\mysite_env\mysite\templates" />
       <recent name="F:\virtual\mysite_env\mysite\mysite\settings" />
       <recent name="F:\virtual\mysite_env\mysite\static\bootstrap-3.3.7\js" />
       <recent name="F:\virtual\mysite_env\mysite\static\bootstrap-3.3.7\fonts" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\virtual\mysite_env\xlf-ycy\media\img\blog" />
+      <recent name="F:\virtual\mysite_env\xlf-ycy\media\img\tree\treehole" />
+      <recent name="F:\virtual\mysite_env\xlf-ycy\treehole\static\js" />
+      <recent name="F:\virtual\mysite_env\xlf-ycy\media\img\tree" />
+      <recent name="F:\virtual\mysite_env\xlf-ycy\media\img\tree\defender" />
     </key>
   </component>
   <component name="RunManager">
@@ -132,6 +161,18 @@
       <workItem from="1580003158088" duration="11526000" />
       <workItem from="1580055304625" duration="85000" />
       <workItem from="1580055399579" duration="1095000" />
+      <workItem from="1580173390995" duration="2193000" />
+      <workItem from="1580177779161" duration="158000" />
+      <workItem from="1580177959751" duration="26585000" />
+      <workItem from="1580278332637" duration="139547000" />
+      <workItem from="1580643007828" duration="10334000" />
+      <workItem from="1580692523431" duration="32987000" />
+      <workItem from="1580746776271" duration="158000" />
+      <workItem from="1580779427015" duration="9521000" />
+      <workItem from="1580796635813" duration="14177000" />
+      <workItem from="1580816113856" duration="12623000" />
+      <workItem from="1580863871024" duration="14654000" />
+      <workItem from="1580891133169" duration="2314000" />
     </task>
     <servers />
   </component>
@@ -139,6 +180,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="692" y="114" key="#Deployment" timestamp="1580177261914">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="692" y="114" key="#Deployment/0.0.1536.824@0.0.1536.824" timestamp="1580177261914" />
+    <state x="561" y="78" key="#Inspections" timestamp="1580225914332">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="561" y="78" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1580225914332" />
     <state x="361" y="74" key="#Scopes" timestamp="1579397876372">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -147,38 +196,58 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="74" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1579673719078" />
-    <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579676488613">
+    <state x="790" y="226" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580614798831">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1579676488613" />
-    <state x="605" y="211" key="FileChooserDialogImpl" timestamp="1580055338133">
+    <state x="790" y="226" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1580614798831" />
+    <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580785427980">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="605" y="211" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1580055338133" />
+    <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1580785427980" />
+    <state x="684" y="305" key="FileChooserDialogImpl" timestamp="1580372286120">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="684" y="305" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1580372286120" />
     <state x="593" y="326" width="373" height="171" key="Github.CreateGistDialog" timestamp="1579831860086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="593" y="326" width="373" height="171" key="Github.CreateGistDialog/0.0.1536.824@0.0.1536.824" timestamp="1579831860086" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1580176977253">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580176977253" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1580176977253">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1580176977253" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1580176977253">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1580176977253" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1580176977253">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1580176977253" />
     <state width="212" height="477" key="HiddenNamespacesPopup" timestamp="1579674239594">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="212" height="477" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1579674239594" />
-    <state x="328" y="98" key="SettingsEditor" timestamp="1580055673851">
+    <state x="414" y="82" key="SettingsEditor" timestamp="1580889784277">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="328" y="98" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1580055673851" />
-    <state x="634" y="245" key="com.intellij.ide.util.TipDialog" timestamp="1580055405639">
+    <state x="414" y="82" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1580889784277" />
+    <state x="634" y="245" key="com.intellij.ide.util.TipDialog" timestamp="1580891133237">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="634" y="245" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1580055405639" />
+    <state x="634" y="245" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1580891133237" />
     <state x="393" y="2" width="801" height="822" key="find.popup" timestamp="1579792860130">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="393" y="2" width="801" height="822" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1579792860130" />
-    <state x="755" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1579795001235">
+    <state x="755" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1580808335993">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="755" y="214" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1579795001235" />
+    <state x="755" y="214" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1580808335993" />
     <state x="491" y="330" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1579327617887">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -21,3 +21,12 @@ def get_comment_list(obj):
     content_type=ContentType.objects.get_for_model(obj)
     comments = Comment.objects.filter(content_type=content_type, object_id=obj.pk, parent=None, root=None)
     return comments.order_by('-comment_time')
+
+@register.simple_tag
+def get_newest_comment(obj):
+    content_type=ContentType.objects.get_for_model(obj)
+    comments = Comment.objects.filter(content_type=content_type, object_id=obj.pk, parent=None, root=None)
+    if len(comments)>0:
+      return comments.order_by('-comment_time')[0]
+    else:
+      return None

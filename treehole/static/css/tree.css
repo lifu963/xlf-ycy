@@ -1,0 +1,213 @@
+#message-list {
+    margin: 0 auto;
+    position: relative;
+}
+
+#message-list .message {
+    position: absolute;
+    width: 30%;
+}
+
+.message #message_head_container {
+    width: 100%;
+    height: 48px; /*根据屏幕宽度*/
+}
+
+.message #message_head_container #message_head {
+    width: 100%;
+    height: 100%;
+    padding-top: 30px; /*根据屏幕宽度*/
+    background: url('/media/img/tree/treehole/tip_h.png') no-repeat top left;
+    background-size: 100% 100%;
+    text-align: center;
+}
+
+.message #message_head_container #message_head .close {
+    position: absolute;
+}
+
+.message #message_content {
+    width: 100%;
+    background: url('/media/img/tree/treehole/tip_c.png') repeat-y;
+    background-size: 100%;
+    min-height: 40px; /*根据屏幕宽度*/
+    max-height: 160px; /*根据屏幕宽度*/
+    text-align: center;
+    overflow: hidden;
+}
+
+.message #message_foot_container {
+    width: 100%;
+    height: 73px; /*根据屏幕宽度*/
+}
+
+.message #message_foot_container #message_foot {
+    width: 100%;
+    height: 100%;
+    background: url('/media/img/tree/treehole/tip_f.png') no-repeat top left;
+    background-size: 100% 100%;
+    padding-top: 20px; /*根据屏幕宽度*/
+    text-align: center;
+}
+
+@media (max-width: 1680px) {
+
+    #message-list .message {
+        position: absolute;
+        width: 20%;
+    }
+
+    .message {
+        font-size: 18px;
+    }
+
+    .message #message_head_container {
+        height: 68px;
+    }
+
+    .message #message_head_container #message_head {
+        padding-top: 45px;
+    }
+
+    .message #message_head_container #message_head .close {
+        font-size: 18px;
+        right: 20px;
+        top: 20px;
+    }
+
+    .message #message_content {
+        min-height: 120px; /*根据屏幕宽度*/
+        max-height: 160px; /*根据屏幕宽度*/
+    }
+
+    .message #message_foot_container {
+        height: 73px; /*根据屏幕宽度*/
+    }
+
+    .message #message_foot_container #message_foot {
+        padding-top: 20px; /*根据屏幕宽度*/
+    }
+}
+
+@media (max-width: 1200px) {
+
+    #message-list .message {
+        width: 30%;
+    }
+
+    .message #message_head_container {
+        height: 50px;
+    }
+
+    .message #message_head_container #message_head {
+        padding-top: 35px;
+    }
+
+    .message #message_head_container #message_head .close {
+        font-size: 14px;
+        right: 14px;
+        top: 14px;
+    }
+
+    .message #message_content {
+        min-height: 50px; /*根据屏幕宽度*/
+        max-height: 120px; /*根据屏幕宽度*/
+    }
+
+    .message #message_foot_container {
+        height: 65px; /*根据屏幕宽度*/
+    }
+
+    .message #message_foot_container #message_foot {
+        padding-top: 25px; /*根据屏幕宽度*/
+    }
+
+}
+
+@media (max-width: 991px) {
+    /*正合适*/
+    #message-list .message {
+        width: 30%;
+    }
+
+    .message {
+        font-size: 12px;
+    }
+
+    .message #message_head_container {
+        height: 45px;
+    }
+
+    .message #message_head_container #message_head {
+        padding-top: 30px;
+    }
+
+    .message #message_head_container #message_head .close {
+        font-size: 12px;
+        right: 12px;
+        top: 12px;
+    }
+
+    .message #message_content {
+        min-height: 45px; /*根据屏幕宽度*/
+        max-height: 100px; /*根据屏幕宽度*/
+    }
+
+    .message #message_foot_container {
+        height: 60px; /*根据屏幕宽度*/
+    }
+
+    .message #message_foot_container #message_foot {
+        padding-top: 25px; /*根据屏幕宽度*/
+    }
+}
+
+@media (max-width: 767px) {
+        /*2张便利贴*/
+    label{
+        font-size: 13px;
+    }
+
+    #message-list .message {
+        width: 100%;
+    }
+
+    .message {
+        font-size: 8px;
+    }
+
+    .message #message_head_container {
+        height: 30px;
+    }
+
+    .message #message_head_container #message_head {
+        padding-top: 20px;
+    }
+
+    .message #message_head_container #message_head .close {
+        font-size: 14px;
+        right: 8px;
+        top: 10px;
+    }
+
+    .message #message_content {
+        min-height: 50px; /*根据屏幕宽度*/
+        max-height: 80px; /*根据屏幕宽度*/
+        padding-top: 8px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .message #message_foot_container {
+        height: 40px; /*根据屏幕宽度*/
+    }
+
+    .message #message_foot_container #message_foot {
+        padding-top: 0px; /*根据屏幕宽度*/
+    }
+
+}
+
+
+
+

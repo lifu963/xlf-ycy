@@ -1,0 +1,99 @@
+body {
+    margin: 0 auto;
+    padding: 0;
+}
+
+.bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: url("/media/img/tree/treehole/tree_d.jpg") no-repeat center;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    opacity: 0.5;
+}
+
+.container-fluid {
+    margin: 0 auto;
+    width: 100%;
+}
+
+#input-row {
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+p label {
+    display: none;
+}
+
+label {
+    font-size: 14px;
+    color: white;
+}
+
+#message_form label, #comment_form label {
+    margin: 0 0;
+}
+
+#message_form .django-ckeditor-widget, #comment_form .django-ckeditor-widget {
+    width: 100%;
+}
+
+@media (max-width: 1680px) {
+    #message_form label {
+        margin: 0 30%;
+    }
+
+    #comment_form label {
+        margin: 0 30%;
+    }
+
+    label {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .message {
+        font-size: 14px;
+    }
+
+    #comment_form label {
+        margin: 0 20%;
+    }
+
+    #message_form label {
+        margin: 0 20%;
+    }
+}
+
+@media (max-width: 991px) {
+
+    #comment_form label {
+        margin: 0 10%;
+    }
+
+    #message_form label {
+        margin: 0 10%;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .bg {
+        background: url("/media/img/tree/treehole/tree_p.jpg") fixed no-repeat center;
+    }
+
+    #comment_form label {
+        margin: 0 7%;
+    }
+
+    #message_form label {
+        margin: 0 7%;
+    }
+
+}

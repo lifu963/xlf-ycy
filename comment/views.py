@@ -24,7 +24,7 @@ def update_comment(request):
         comment.save()#保存到数据库
 
         #该comment发送邮件
-        comment.send_email()
+        # comment.send_email()
 
         data['status']="SUCCESS"
         data['username']=comment.user.get_nickname_or_username()

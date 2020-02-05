@@ -1,0 +1,188 @@
+{% extends 'treehole/tree_base.html' %}
+
+{% block title %}
+    我的树洞
+{% endblock %}
+
+{% load staticfiles %}
+{% load comment_tags %}
+
+{% block header_extends %}
+    <link rel="stylesheet" href="{% static 'css/tree_all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tree.css' %}">
+    <script type=“text/javascript” src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+    <script type=“text/javascript” src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/utils.js' %}"></script>
+{% endblock %}
+
+{% block tree_content %}
+    <div class="bg"></div>
+    <div class="container-fluid">
+        <div class="row" id="input-row">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4 col-md-6 col-md-offset-3">
+                {#        留言输入框        #}
+                <div class="message-area">
+                    {% if user.is_authenticated %}
+                        <form id="message_form" action="{% url 'update_message' %}" method="post"
+                              style="overflow: hidden">
+                            <label for="message-text">{{ user.get_nickname_or_username }}小可爱，你想说些啥呢!</label>
+                            {% csrf_token %}
+                            {{ message_form.media }}
+                            {{ message_form.as_p }}
+                            <span id="message-error" class="text-danger pull-left"></span>
+                            <input type="submit" value="留言" class="btn btn-primary pull-right">
+                        </form>
+                    {% else %}
+                        你是怎么进来的？
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row" id="list-row">
+            <div class="col-xs-6 col-sm-9 col-md-9 col-lg-10">
+                {#        留言列表      #}
+                <div class="message-area">
+                    <div id="message-list">
+                        {% for message in messages %}
+                            <div id="message_{{ message.pk }}" class="message">
+                                <div id="message_head_container">
+                                    <div id="message_head">
+                                        <div class="close" style="cursor: pointer" onclick="close_to(this)">X</div>
+                                        {{ message.author.get_nickname_or_username }}
+                                    </div>
+                                </div>
+                                <div id="message_content" style="cursor: pointer" onclick="goto({{ message.pk }})">
+                                    <div id="message-content-area">
+                                        {{ message.content|safe|truncatechars:12 }}
+                                    </div>
+                                    <div id="message-comment-area">
+                                        {% get_newest_comment message as comment %}
+                                        {% if comment %}
+                                            <span>{{ comment.user.get_nickname_or_username }} </span>
+                                            <span>回复: </span>
+                                            <span>{{ comment.text|safe|truncatechars_html:6 }}</span>
+                                        {% endif %}
+                                        <div id="comments-sgin">
+                                            {% get_comment_count message as count %}
+                                            {% if count > 1 %}......{% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="message_foot_container">
+                                    <div id="message_foot">
+                                        {{ message.create_time|date:"Y-m-d H:i:s" }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <span id="no_message">暂无留言</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+{% block script_extend %}
+    <script type="text/javascript">
+        {#  一加载后     #}
+
+        function randLocation(height, message, z_index) {
+            var topValue = parseInt(Math.random() * height);//根据屏幕宽度调整
+            var leftValue = parseInt(Math.random() * 100);
+            message.style.left = leftValue + '%';
+            message.style.top = topValue + 'px';
+            message.style.zIndex = z_index;
+        }
+
+        function getHeight() {
+            count = document.getElementsByClassName('message').length;
+            if (window.screen.width <= 767) {
+                height = Math.floor(count / 5) * 200 + 300;
+            } else {
+                height = Math.floor(count / 10) * 100 + 300;
+            };
+            return height;
+        }
+
+        $(document).ready(function () {
+            height = getHeight();
+            messages = document.getElementsByClassName('message');
+            for (var i = 0; i < messages.length; i++) {
+                randLocation(height, messages[i], i);//生成随机位置
+            }
+            ;
+        });
+
+        function goto(message_id) {
+            var now_html = {% url 'tree' %} +message_id;
+            window.location.href = now_html + '?from={% url 'tree' %}';
+        }
+
+        function close_to(node) {
+            var content = document.getElementById("message-list")
+            content.removeChild(node.parentNode.parentNode.parentNode);
+        }
+
+        {#    插入留言    #}
+        $("#message_form").submit(
+            function () {
+                //清空错误提示
+                $("#message-error").text('');
+                if (CKEDITOR.instances.id_text.document.getBody().getText().trim() == '') {
+                    $("#message-error").text("评论内容不能为空");
+                    return false;
+                }
+                CKEDITOR.instances["id_text"].updateElement();
+                $.ajax({
+                    url: '{% url 'update_message' %}',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    cache: false,
+                    success: function (data) {
+                        if (data['status'] == 'SUCCESS') {
+                            //生成 html内容 异步更新
+                            //插入留言
+                            var message_html =
+                                '<div id="message_{0}" class="message">' +
+                                '<div id="message_head_container">' +
+                                '<div id="message_head">' +
+                                '<div class="close" style="cursor: pointer" onclick="close_to(this)">X</div>' +
+                                '{1}' +
+                                '</div>' +
+                                '</div>' +
+                                '<div id="message_content" style="cursor: pointer" onclick="goto({0})">' +
+                                '<div id="message-content-area">{3}</div>' +
+                                '</div>' +
+                                '<div id="message_foot_container">' +
+                                '<div id="message_foot">{2}</div>' +
+                                '</div>' +
+                                '</div>'
+                            message_html = message_html.format(data['pk'], data['username'], timeFormat(data['message_time']), data['text']);
+                            $("#message-list").prepend(message_html);
+                            //随机生成位置
+                            message_id = "message_" + data['pk']
+                            new_message = document.getElementById(message_id);
+                            height = getHeight()
+                            randLocation(height, new_message, data['pk']);
+                            //评论结束后的清空等
+                            CKEDITOR.instances.id_text.setData('');
+                            $("#no_message").remove();
+                            $("#message-error").text("留言成功!");
+                        } else {
+                            //发生错误
+                            console.log(data);
+                            $("#message-error").text(data['error_message']);
+                        }
+                    },
+                    error: function (xhr) {
+                        //发生错误
+                        console.log(xhr);
+                    }
+                });
+                return false;
+            });
+    </script>
+{% endblock %}
+

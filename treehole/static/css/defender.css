@@ -1,0 +1,375 @@
+.disableAnimation {
+    animation: none !important;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #f67280;
+    overflow: hidden;
+}
+
+.iconWrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 5;
+}
+
+.iconWrapper svg {
+    width: 40px;
+    fill: #fff;
+    transform-origin: center;
+}
+
+.iconWrapper svg .one,
+.iconWrapper svg .two,
+.iconWrapper svg .three {
+    transform-origin: center;
+}
+
+.iconWrapper svg .one {
+    animation: firstLineShow 0.5s ease-in-out;
+}
+
+.iconWrapper svg .two {
+    animation: secondLineReverse 0.5s ease-in-out;
+}
+
+.iconWrapper svg .three {
+    animation: thirdLineShow 0.5s ease-in-out;
+}
+
+.iconWrapper.open .one {
+    transform: rotate(45deg) translate(8px, 38px);
+    animation: firstLineAnimation 0.5s ease-in-out;
+}
+
+.iconWrapper.open .two {
+    transform: scale(0);
+    animation: secondLineAnimation 0.5s ease-in-out;
+}
+
+.iconWrapper.open .three {
+    transform: rotate(135deg) translate(15px, 0);
+    animation: thirdLineHide 0.5s ease-in-out;
+}
+
+.navigationWrapper {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    pointer-events: none;
+    z-index: 4;
+    top: 25%;
+}
+
+.navigationWrapper #saying {
+    text-align: center;
+    margin: 5px 0;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.navigationWrapper #author {
+    text-align: center;
+    margin: 5px 0;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.navigationWrapper-li {
+    text-align: center;
+    margin: 5px 0;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.navigationWrapper .btn {
+    position: absolute;
+    padding: 0;
+    width: 20%;
+    left: 40%;
+    color: snow;
+}
+
+.navigationWrapper.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.waveWrapper {
+    position: absolute;
+    top: -20vh;
+    height: 120vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.waveWrapper .wrapper {
+    position: absolute;
+}
+
+.waveWrapper .wrapper .box {
+    background-color: #35477d;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    animation: boxReverse 0.8s forwards linear;
+}
+
+.waveWrapper .wrapper .box.open {
+    animation: box 0.8s forwards 0.3s linear;
+}
+
+.waveWrapper .wrapper img.thirdWave {
+    height: 400px;
+    width: 250vw;
+    transform: translate3d(50%, -100vh, 0);
+    animation: waveThreeReverse 0.9s forwards 0.15s linear;
+}
+
+.waveWrapper .wrapper img.secondWave {
+    height: 200px;
+    width: 150vw;
+    transform: translate3d(10%, -100vh, 0);
+    animation: waveTwoReverse 0.9s forwards 0.1s linear;
+}
+
+.waveWrapper .wrapper img.firstWave {
+    height: 300px;
+    width: 200vw;
+    transform: translate3d(-60%, -100vh, 0);
+    animation: waveReverse 0.9s forwards 0.05s linear;
+}
+
+.waveWrapper .wrapper img.open.thirdWave {
+    animation: waveThree 0.9s forwards linear;
+}
+
+.waveWrapper .wrapper img.open.secondWave {
+    animation: waveTwo 0.9s forwards 0.05s linear;
+}
+
+.waveWrapper .wrapper img.open.firstWave {
+    animation: wave 0.9s forwards 0.1s linear;
+}
+
+@keyframes firstLineAnimation {
+    0% {
+        transform: rotate(0deg) translateY(0);
+    }
+    50% {
+        transform: rotate(0deg) translateY(0);
+    }
+    100% {
+        transform: rotate(45deg) translate(8px, 38px);
+    }
+}
+
+
+@keyframes firstLineShow {
+    0% {
+        transform: rotate(45deg) translate(8px, 38px);
+    }
+    50% {
+        transform: rotate(0deg) translateY(0);
+    }
+    100% {
+        transform: rotate(0deg) translateY(0);
+    }
+}
+
+@keyframes secondLineAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50%,
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes secondLineReverse {
+    0%,
+    50% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes thirdLineShow {
+    0% {
+        transform: rotate(135deg) translate(15px, 0);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes thirdLineHide {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(135deg) translate(15px, 0);
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: translate3d(-50%, -100vh, 0);
+    }
+    100% {
+        transform: translate3d(0%, 100vh, 0);
+    }
+}
+
+@keyframes waveTwo {
+    0% {
+        transform: translate3d(10%, -100vh, 0);
+    }
+    100% {
+        transform: translate3d(-10%, 100vh, 0);
+    }
+}
+
+@keyframes waveThree {
+    0% {
+        transform: translate3d(-60%, -100vh, 0);
+    }
+    100% {
+        transform: translate3d(0%, 100vh, 0);
+    }
+}
+
+@keyframes waveReverse {
+    100% {
+        transform: translate3d(-50%, -100vh, 0);
+    }
+    0% {
+        transform: translate3d(0%, 100vh, 0);
+    }
+}
+
+@keyframes waveTwoReverse {
+    100% {
+        transform: translate3d(10%, -100vh, 0);
+    }
+    0% {
+        transform: translate3d(-10%, 100vh, 0);
+    }
+}
+
+@keyframes waveThreeReverse {
+    100% {
+        transform: translate3d(-60%, -100vh, 0);
+    }
+    0% {
+        transform: translate3d(0%, 100vh, 0);
+    }
+}
+
+@keyframes box {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 120vh;
+    }
+}
+
+@keyframes boxReverse {
+    100% {
+        height: 0;
+    }
+    0% {
+        height: 120vh;
+    }
+}
+
+@media (max-width: 1680px) {
+    .navigationWrapper-li {
+        margin: 10px 0;
+        font-size: 35px;
+    }
+
+    .navigationWrapper #saying {
+        margin: 5px 0;
+        font-size: 35px;
+    }
+
+    .navigationWrapper #author {
+        margin: 5px 0;
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .navigationWrapper-li {
+        margin: 5px 0;
+        font-size: 35px;
+    }
+
+    .navigationWrapper #saying {
+        margin: 5px 0;
+        font-size: 35px;
+    }
+
+    .navigationWrapper #author {
+        margin: 5px 0;
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 991px) {
+    .navigationWrapper-li {
+        margin: 5px 0;
+        font-size: 30px;
+    }
+
+    .navigationWrapper #saying {
+        margin: 5px 0;
+        font-size: 30px;
+    }
+
+    .navigationWrapper #author {
+        margin: 5px 0;
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .navigationWrapper-li {
+        margin: 5px 0;
+        font-size: 20px;
+    }
+
+    .navigationWrapper #saying {
+        margin: 5px 0;
+        font-size: 20px;
+    }
+
+    .navigationWrapper #author {
+        margin: 5px 0;
+        font-size: 20px;
+    }
+}
+
+
+
+

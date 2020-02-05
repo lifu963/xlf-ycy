@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block nav_tree_active %}active{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% block tree_content %}
+        {% endblock %}
+    {% else %}
+        <span>未登录,跳转到首页。。。</span>
+        <script type="text/javascript">
+            window.location.href = '/';
+        </script>
+    {% endif %}
+{% endblock %}
+
+

@@ -6,8 +6,33 @@
 {% endblock %}
 
 {% block header_extends %}
-    <script type="text/javascript" src="{% static 'js/highcharts.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/swiper.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <style>
+        .box ol {
+            position: absolute;
+            left: 50%;
+            width: 10rem;
+            height: 1rem;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            z-index: 2;
+        }
+
+        .box ol li {
+            width: 1rem;
+            height: 1rem;
+            background: #bdccd4;
+            border-radius: 50%;
+        }
+
+        .box ol li.on {
+            background: #45aaf2;
+        }
+
+    </style>
 {% endblock %}
 
 {% block nav_home_active %}active{% endblock %}
@@ -15,58 +40,180 @@
 {% block nav_blog_active %}{% endblock %}
 
 {% block content %}
-    <h3 class="home-content">欢迎访问我的网站,随便看</h3>
-    <div id="container" style="width: 600px;height:400px;"></div>
-    <div class="hot_data">
-     <h3>今日热门博客</h3>
-    <ul>
-        {% for hot_data in today_hot_data %}
-            <li>
-                <a href="{% url 'blog_detail' hot_data.object_id %}">{{ hot_data.content_object.title }}</a>({{ hot_data.read_num }})
-            </li>
-        {% empty %}
-            <li>今天是真的凄凉</li>
-        {% endfor %}
-    </ul>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="box col-xs-12 col-md-12">
+                <div class="embed-responsive embed-responsive-16by9">
+                    {% for image in home_images %}
+                        <div class="p">
+                            <img src="{{ image.image_url }}" class="img-responsive" alt="">
+                        </div>
+                    {% empty %}
+                        <p>你的电脑怕是坏掉了。</p>
+                    {% endfor %}
+                    <ol>
+                        {% for image in home_images %}
+                            <li></li>
+                        {% empty %}
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="chart col-xs-12 col-md-12">
+                <div class="jumbotron">
+                    <h1>欢迎来到夫哥的小屋！</h1>
+                    <p id="describe">春天到了，万物复苏，又到了万物交配的季节。</p>
+                    <p><a class="btn btn-primary " href="" role="button">Learn more</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="solution-box col-md-12" style="margin-bottom: 2rem">
+                <div class="solution-cut">
+                    <div class="swiper-container">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+		                        <span>
+                                   <h3>本周最热门博客</h3>
+                                    {% if sevendays_hot_data %}
+                                        <a href="{% url 'blog_detail' sevendays_hot_data.id %}"><p>{{ sevendays_hot_data.title }}({{ sevendays_hot_data.read_num_sum }})</p></a>
+                                    {% else %}
+                                        <p>我凉了呀</p>
+                                    {% endif %}
+                                </span>
+                                <div class="img">
+                                    <img src='/media/img/fuge.jpg'>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <span>
+			                       <h3>夫哥</h3>
+			                       <p>可爱小电工</p>
+		                        </span>
+                                <div class="img">
+                                    <img src='/media/img/recommand.jpeg'>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <span>
+			                       <h3>援助沙雕儿童</h3>
+			                       <p>夫哥是那种贪钱的人？</p>
+		                        </span>
+                                <div class="img">
+                                    <img src='/media/img/money.jpg'>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <span>
+			                       <h3>小小树洞</h3>
+                                    <a href="javascript:goto_tree()"><p>究竟是人性的扭曲，还是道德的沦丧?</p></a>
+		                        </span>
+                                <div class="img">
+                                    <img src='/media/img/liuyan.jpg'>
+                                </div>
+                            </li>
+                            <li class="swiper-slide">
+                                <span>
+			                       <h3>未完待续</h3>
+			                       <p>我真的还没想好要干嘛.....</p>
+		                        </span>
+                                <div class="img">
+                                    <img src='/media/img/end.jpg'>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="hot_data">
-    <h3>昨日热门博客</h3>
-    <ul>
-        {% for hot_data in yesterday_hot_data %}
-            <li>
-                <a href="{% url 'blog_detail' hot_data.object_id %}">{{ hot_data.content_object.title }}</a>({{ hot_data.read_num }})
-            </li>
-        {% empty %}
-            <li>昨天是真的凄凉</li>
-        {% endfor %}
-    </ul>
-    </div>
-    <div class="hot_data">
-    <h3>七天热门博客</h3>
-    <ul>
-        {% for hot_data in sevendays_hot_data %}
-            <li>
-                <a href="{% url 'blog_detail' hot_data.id %}">{{ hot_data.title }}</a>({{ hot_data.read_num_sum }})
-            </li>
-        {% empty %}
-            <li>这七天是真的凄凉</li>
-        {% endfor %}
-    </ul>
-    </div>
-    <script>
-        // 图表配置
-        var options = {
-            chart: {type: 'line'},
-            title: {text: null},
-            xAxis: {categories:{{dates|safe}}, tickmarkPlacement: "on", title: {text: '一周访客数量'}},
-            yAxis: {title: {text: null}, labels: {enabled: false}},
-            series: [{name: '每日访客数量', data:{{ read_nums }}}],
-            legend: {enabled: false},
-            credits: {enabled: false},
-            plotOptions: {line: {dataLabels: {enabled: true}}},
-        };
-        // 图表初始化函数
-        var chart = Highcharts.chart('container', options);
+    <script type="text/javascript" src="{% static 'js/swiper.min.js' %}"></script>
+{% endblock %}
+{% block script_extend %}
+    <script type="text/javascript">
+
+        function goto_tree() {
+            $.ajax({
+                url: '{% url 'islogin' %}',
+                type: 'GET',
+                data: $(this).serialize(),
+                cache: false,
+                success: function (data) {
+                    if (data['status'] == 'SUCCESS') {
+                        window.location.href = '/treehole/defender/';
+                    } else {
+                        if (data['code'] == 400) {
+                            $('#login_model').modal('show');
+                        } else {
+                            alert(data['message']);
+                        }
+                    }
+                },
+                error: function (xhr) {
+                    console.log(xhr)
+                }
+            });
+        }
+
+        $(function () {
+            {#下方轮播#}
+            var m_slidesPerView;
+            var m_spaceBetween;
+            if (document.body.clientWidth < 768) {
+                m_slidesPerView = 1;
+                m_spaceBetween = 10;
+            } else if (document.body.clientWidth < 992) {
+                m_slidesPerView = 3;
+                m_spaceBetween = 10;
+            } else {
+                m_slidesPerView = 5;
+                m_spaceBetween = 10;
+            }
+
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: m_slidesPerView,
+                spaceBetween: m_spaceBetween,
+                centeredSlides: true,
+                loop: true,
+                slideToClickedSlide: true, // 点击slide会过渡到这个slide
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+            });
+
+            {# 上方轮播 #}
+            var n = 0;
+            var imageNum = $('ol li').length
+            $('ol li').eq(n).addClass('on').siblings().removeClass('on');
+            $('.p').eq(n).addClass('show').siblings().removeClass('show');
+            var timer;
+
+            function play() {
+                n++;
+                n %= imageNum;//4->图片数量
+                $('ol li').eq(n).addClass('on').siblings().removeClass('on');
+                $('.p').eq(n).addClass('show').siblings().removeClass('show');
+            }
+
+            function autoPlay() {
+                timer = setInterval(play, 2000);
+            };
+            autoPlay();
+            $('ol li').on('click', function () {
+                n = $(this).index();
+                clearInterval(timer);
+                $(this).addClass('on').siblings().removeClass('on');
+                $('.p').eq(n).addClass('show').siblings().removeClass('show');
+                autoPlay();
+            })
+        })
     </script>
 {% endblock %}
 

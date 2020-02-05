@@ -1,0 +1,174 @@
+.bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: url("/media/img/blog/bg.jpg") no-repeat center;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    opacity: 1;
+}
+
+li {
+    list-style-type: none;
+}
+
+.panel-heading {
+    font-size: 16px;
+}
+
+.panel-heading h3 {
+    /*根据屏幕大小调整margin*/
+    padding-left: 30%;
+    margin: 0 auto;
+    font-size: 30px;
+}
+
+div.blog:not(:last-child) {
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid gainsboro;
+}
+
+/*博客信息*/
+div.blog p.blog_info {
+    margin-bottom: 0;
+}
+
+ul.blog_info_description {
+    margin: 1em;
+}
+
+ul.blog_info_description li {
+    display: inline-block;
+    margin-right: 2em;
+}
+
+/*分页器*/
+div .paginator {
+    text-align: center;
+}
+
+/*上下一篇*/
+div .blog-more {
+    margin-top: 1em;
+    font-size: 15px;
+}
+
+/*评论区*/
+div .comment-area {
+    margin-top: 2em;
+}
+
+h3 .comment-area-title {
+    border-bottom: 1px solid gainsboro;
+    padding-bottom: 0.4em;
+}
+
+div.django-ckeditor-widget {
+    width: 100%;
+}
+
+/*评论*/
+div .comment {
+    border-bottom: 1px dashed gainsboro;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+    /*随着屏幕宽度改变*/
+    font-size: 15px;
+}
+
+/*回复*/
+div .reply {
+    margin-left: 2em;
+    /*随着屏幕宽度改变*/
+    font-size: 15px;
+}
+
+.list-group-item {
+    border: 1px solid gray;
+}
+
+/*评论表格*/
+#comment_form p label {
+    display: none;
+}
+
+#comment_form label {
+    /*随着屏幕宽度改变*/
+    font-size: 15px;
+}
+
+/*回复区域*/
+div#reply_content_container {
+    display: block;
+    border: 1px solid black;
+    background-color: #f8f8f8;
+    overflow: hidden;
+    padding: 1em 1em 0.5em;
+}
+
+.blog-content {
+    /*根据屏幕宽度调整*/
+    font-size: 14px;
+}
+
+/*点赞*/
+div.like {
+    color: #337ab7;
+    cursor: pointer;
+    display: inline-block;
+}
+
+div.like .active {
+    color: red;
+}
+
+@media (max-width: 767px) {
+    .panel-heading h3 {
+        /*根据屏幕大小调整margin*/
+        margin: 0 auto;
+        font-size: 20px;
+    }
+
+    .bg {
+        background: url("/media/img/blog/bg_p.jpg") no-repeat center;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    ul.blog_info_description {
+        margin: 0 auto;
+    }
+
+    ul.blog_info_description li {
+        font-size: 6px;
+        margin-right: 0;
+    }
+
+    .blog-content, .blog-more p {
+        font-size: 12px;
+    }
+
+    a.btn-success, a.btn-danger,.btn-primary {
+        height: 18px;
+        width: 30px;
+        font-size: 12px;
+        text-align: center;
+        padding: 0;
+    }
+
+
+    .like span,.comment span, .comment a, .comment p, .comment div {
+        font-size: 12px;
+    }
+
+    hr {
+        margin: 5px auto;
+    }
+
+     #comment_form label {
+        font-size: 10px;
+    }
+}

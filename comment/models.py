@@ -30,8 +30,8 @@ class Comment(models.Model):
      user=models.ForeignKey(User,related_name="comments",on_delete=models.CASCADE)
 
      root=models.ForeignKey('self',null=True,related_name='root_comment',on_delete=models.CASCADE)
-     parent=models.ForeignKey('self',null=True,related_name="parent_comment",on_delete=models.CASCADE)
-     reply_to=models.ForeignKey(User,null=True,related_name='replies',on_delete=models.CASCADE)
+     parent=models.ForeignKey('self',null=True,blank=True,related_name="parent_comment",on_delete=models.CASCADE)
+     reply_to=models.ForeignKey(User,null=True,blank=True,related_name='replies',on_delete=models.CASCADE)
 
      def send_email(self):
           # 发送邮件通知

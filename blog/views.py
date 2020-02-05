@@ -4,10 +4,13 @@ from .models import BlogType, Blog
 from django.conf import settings
 from django.db.models import Count
 from read_statistics.utils import read_statistics_once_read
-from user.forms import LoginForm
+from django.contrib.contenttypes.models import ContentType
+from read_statistics.utils import get_seven_days_read_data
+
 
 each_page_blog_number=4
 # Create your views here.
+
 
 def blog_common_data(request,blogs_all_list):
     #分页器
@@ -45,12 +48,19 @@ def blog_common_data(request,blogs_all_list):
         blog_dates_dict[blog_date]=blog_count
     context['blog_dates']=blog_dates_dict
     context['page_range']=page_range
+    return context
 
+def blog_charts(context):
+    blog_content_type = ContentType.objects.get_for_model(Blog)
+    dates, read_nums = get_seven_days_read_data(blog_content_type)
+    context['dates'] = dates
+    context['read_nums'] = read_nums
     return context
 
 def blog_list(request):
     blogs_all_list = Blog.objects.all()
     context=blog_common_data(request,blogs_all_list)
+    context=blog_charts(context)
     return render(request,'blog/blog_list.html', context)
 
 def blogs_with_type(request, blog_type_pk):
@@ -58,14 +68,15 @@ def blogs_with_type(request, blog_type_pk):
     blog_type = get_object_or_404(BlogType, pk=blog_type_pk)
     blogs_all_list=Blog.objects.filter(blog_type=blog_type)
     context=blog_common_data(request,blogs_all_list)
+    context = blog_charts(context)
     context['blog_type'] = blog_type
     return render(request,'blog/blog_with_type.html', context)
-
 
 def blogs_with_date(request,year,month):
     context = {}
     blogs_all_list = Blog.objects.filter(create_time__year=year,create_time__month=month)
     context=blog_common_data(request,blogs_all_list)
+    context = blog_charts(context)
     context['blogs_with_date']='%s年%s月'%(year,month)
     return render(request,'blog/blog_with_date.html', context)
 
@@ -79,5 +90,6 @@ def blog_detail(request, blog_pk):
     context['blog']=blog
     context['next_blog']=Blog.objects.filter(create_time__lt=blog.create_time).first()
     response = render(request,'blog/blog_detail.html', context)
-    response.set_cookie(read_cookie_key,'true')
+    age=24*60*60
+    response.set_cookie(read_cookie_key,'true',max_age=age)
     return response

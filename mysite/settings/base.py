@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'comment',
     'likes',
     'user',
+    'treehole',
 ]
 
 MIDDLEWARE = [
@@ -46,7 +47,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,7 +81,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -94,51 +94,57 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'static_collected')
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
 ]
 
-#配置media
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+# 配置media
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-#配置ckeditor
-CKEDITOR_UPLOAD_PATH='upload/'
+# 配置ckeditor
+CKEDITOR_UPLOAD_PATH = 'upload/'
 
-CKEDITOR_CONFIGS={
-'default':{},
-'comment_ckeditor':{
+CKEDITOR_CONFIGS = {
+    'default': {},
+    'comment_ckeditor': {
         'toolbar': 'custom',
         'toolbar_custom': [
-            ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'],
-            ["TextColor", "BGColor", 'RemoveFormat'],
-            ['NumberedList', 'BulletedList'],
-            ['Link', 'Unlink'],
-            ["Smiley", "SpecialChar", 'Blockquote'],
+            ["TextColor",'RemoveFormat'],
+            ["Smiley"],
         ],
         'width': 'auto',
-        'height': '180',
+        'height': '10vh',
+        'tabSpaces': 4,
+        'removePlugins': 'elementspath',
+        'resize_enabled': False,
+    },
+    'message_ckeditor': {
+        'toolbar': 'custom',
+        'toolbar_custom': [
+            ["TextColor",'RemoveFormat'],
+            ["Smiley"],
+        ],
+        'width': 'auto',
+        'height': '10vh',
         'tabSpaces': 4,
         'removePlugins': 'elementspath',
         'resize_enabled': False,
     }
 }
 
-#自定义参数
-EACH_PAGE_BLOGS_NUMBER=4
+# 自定义参数
+EACH_PAGE_BLOGS_NUMBER = 4
 
-#缓存配置
+# 缓存配置
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
         'LOCATION': 'my_cache_table',
     }
 }
-
-
