@@ -16,7 +16,7 @@ class BlogType(models.Model):
 
 class Blog(models.Model,ReadNumExpandMethod):
     title=models.CharField(max_length=50)
-    blog_type=models.ForeignKey(BlogType,on_delete=models.DO_NOTHING,related_name='blog')
+    blog_type=models.ForeignKey(BlogType,on_delete=models.CASCADE,related_name='blog')
     content=RichTextUploadingField()
     author=models.ForeignKey(User,on_delete=models.DO_NOTHING)
     read_details=GenericRelation(ReadDetail)
