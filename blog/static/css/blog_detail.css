@@ -26,6 +26,10 @@ li {
     font-size: 30px;
 }
 
+.blog-content{
+    overflow: hidden;
+}
+
 div.blog:not(:last-child) {
     margin-bottom: 1.5em;
     border-bottom: 1px solid gainsboro;
