@@ -126,6 +126,10 @@ div.hot_data {
     opacity: 1;
 }
 
+.row hr{
+    margin: 0px;
+}
+
 /*响应式嵌入补充*/
 /*大电脑*/
 @media (max-width: 1680px) {
@@ -152,6 +156,10 @@ div.hot_data {
     .jumbotron .btn-primary {
         padding: 10px 16px;
         font-size: 24px;
+    }
+
+    .foot a {
+        font-size: 14px;
     }
 }
 
@@ -186,6 +194,10 @@ div.hot_data {
         padding: 8px 14px;
         font-size: 20px;
     }
+
+    .foot a {
+        font-size: 12px;
+    }
 }
 
 /*Ipad*/
@@ -213,6 +225,10 @@ div.hot_data {
     .jumbotron .btn-primary {
         padding: 6px 10px;
         font-size: 16px;
+    }
+
+    .foot a {
+        font-size: 10px;
     }
 }
 
@@ -245,5 +261,9 @@ div.hot_data {
     .jumbotron .btn-primary {
         padding: 4px 7px;
         font-size: 10px;
+    }
+
+    .foot a {
+        font-size: 6px;
     }
 }
